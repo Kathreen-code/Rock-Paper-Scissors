@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+  <button id="rock">Rock</button> 
+  <button id="paper">Paper</button>
+  <button id="scissors">Scissors</button>
+
+<script>
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const choices = ['Rock', 'Paper', 'Scissors'];
+let playerSelection;
+
+
+let computerSelection = computerPlay();
+function computerPlay() 
+    {
+        return choices[Math.floor(Math.random()*choices.length)];
+    }
+   
+
+//alert(computerSelection); This will generate a different choice only when the page is reloaded.
+
+    function playRound(playerSelection, computerSelection)
+        {
+            if(playerSelection == 'Rock' && computerSelection == 'Paper') 
+            {
+             return 'You lose, Paper Beats Rock!';
+            }
+            else if( playerSelection == 'Rock' && computerSelection == 'Scissors') 
+            {
+            return 'You win, Rock beats Scissors!';
+            }
+            else if( playerSelection == 'Scissors' && computerSelection == 'Rock') 
+            {
+            return 'You lose, Rock beats Scissors!';
+            }
+            else if( playerSelection == 'Scissors' && computerSelection == 'Paper') 
+            {
+            return 'You win, Scissors beats Paper!';
+            }
+            else if( playerSelection == 'Paper' && computerSelection == 'Rock') 
+            {
+            return 'You win, Paper beats Rock!';
+            }
+            else if( playerSelection == 'Paper' && computerSelection == 'Scissors') 
+            {
+            return 'You lose, Scissors beats Paper!';
+            }           
+            else 
+            {
+            return 'It\'s a tie!';
+            }
+
+        }
+    
+        rock.addEventListener('click', function () 
+        {
+            alert (playRound("Rock", computerSelection));
+        
+        });
+
+        paper.addEventListener('click', function () 
+        {
+            alert (playRound("Paper", computerSelection));
+        
+        });
+
+        scissors.addEventListener('click', function () 
+        {
+            alert (playRound("Scissors", computerSelection));
+        
+        });
+
+
+
+
+
+       
+</script>
+</body>
+</html>
